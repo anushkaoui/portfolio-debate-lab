@@ -1,0 +1,27 @@
+# Every tunable, with default and allowed range. Tuning is allowed on the dev
+# period only. Keep this list small. The builder may not add hidden parameters.
+# Final values are frozen by core/freeze.py.
+
+# --- decision / debate -------------------------------------------------------
+max_debate_rounds: 1              # default 1; range [0, 2]
+allow_analyst_rebuttal: true      # default true
+max_calls_per_decision: 8         # default 8; range [1, 12]
+
+# --- analyst proposals -------------------------------------------------------
+# The context exposes fixed 1-week, 1-month and 3-month return windows; the
+# analyst styles are defined by how they weight those numeric features.
+proposals_per_analyst: 3          # default 3; range [1, 5]
+conviction_to_weight: 0.05        # delta = conviction_to_weight * conviction; range [0.01, 0.10]
+max_analyst_delta: 0.08           # per-name delta cap before risk layer; range [0.02, 0.12]
+
+# --- LLM ---------------------------------------------------------------------
+temperature: 0.20                 # default 0.20; range [0.0, 1.0]
+max_output_tokens: 900            # default 900; range [300, 2000]
+ensemble_samples: 3               # default 3; range [1, 7]
+
+# --- signals / baselines -----------------------------------------------------
+momentum_lookback_days: 252       # default 252; range [126, 378]
+momentum_skip_days: 21            # default 21; range [0, 21]
+top_k: 5                          # default 5; range [3, 8]
+low_vol_lookback_days: 63         # default 63; range [21, 252]
+

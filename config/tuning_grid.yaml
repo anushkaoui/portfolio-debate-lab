@@ -1,0 +1,23 @@
+# Pre-registered tuning grid. Keep this small; every run enters the ledger.
+variants:
+  - name: base
+    overrides: {}
+  - name: one_round
+    overrides:
+      max_debate_rounds: 1
+  - name: no_rebuttal
+    overrides:
+      max_debate_rounds: 1
+      allow_analyst_rebuttal: false
+  - name: lower_delta
+    overrides:
+      max_analyst_delta: 0.06
+  - name: higher_delta
+    overrides:
+      max_analyst_delta: 0.10
+  - name: fewer_proposals
+    overrides:
+      proposals_per_analyst: 2
+  - name: more_proposals
+    overrides:
+      proposals_per_analyst: 4

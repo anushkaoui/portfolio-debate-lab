@@ -1,0 +1,9 @@
+# Frozen transaction-cost model. Applied per side on traded notional.
+# `total_bps = commission_bps + slippage_bps`; sensitivity runs use a multiplier.
+commission_bps: 2.0
+slippage_bps: 5.0
+# Extra slippage applied to the simulated order if it exceeds `participation_limit`
+# of average daily volume. This is intentionally punitive and simple.
+impact_bps_at_full_participation: 10.0
+participation_limit: 0.10
+cost_multiplier: 1.0

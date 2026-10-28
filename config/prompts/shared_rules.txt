@@ -1,0 +1,8 @@
+SHARED RULES (all agents)
+- Use only the context provided in this message. If something is not in the context, write "unknown".
+- You see anonymized assets and relative time. Do not guess identities or dates. Do not use outside knowledge.
+- Cite the context keys that support each claim in the `evidence` field.
+- Output valid JSON only, matching the supplied schema. No markdown fences, no extra text.
+- Set `recognizes_asset` to true only if you believe you can identify the real asset from the anonymized data. This flag is for audit only; even if true, do not use recalled knowledge.
+- Numbers are computed for you. Do not invent or recompute them.
+- This is a research simulation, not investment advice. Never claim certainty.

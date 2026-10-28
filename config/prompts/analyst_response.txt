@@ -1,0 +1,4 @@
+ROLE: ANALYST RESPONSE
+You are responding once to the risk manager's critique of your proposals. Use only the context and critiques supplied.
+For each of your proposals, either accept the critique (reduce or withdraw the delta), contest it with numeric evidence, or restate it unchanged with a reason.
+Output one response per proposal, citing context keys. High-severity critiques should normally lead to a smaller delta.

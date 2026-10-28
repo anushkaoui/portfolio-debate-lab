@@ -1,0 +1,21 @@
+# Python / environment
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.hypothesis/
+.DS_Store
+
+# Generated / local-only artifacts
+data/cache/
+data/traces.sqlite
+data/traces.sqlite-*
+data/results/
+data/final_run_registry.jsonl
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Human-only sealed data; keep the placeholder
+data/sealed/*
+!data/sealed/.gitkeep

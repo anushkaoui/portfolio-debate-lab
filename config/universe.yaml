@@ -1,0 +1,47 @@
+# Universe: one market (US), 20 liquid large-caps that were listed and liquid at
+# the start of the warmup. Constituents are fixed ex ante to avoid choosing
+# winners later. This is NOT a historical index-membership reconstruction, so
+# survivorship bias remains a documented limitation.
+#
+# Selection date: 2019-01-02. Data source: Yahoo Finance via yfinance (human
+# must confirm the terms of use before redistributing any data).
+market: US
+currency: USD
+selection_date: "2019-01-02"
+selection_rule: "20 liquid US large-caps with continuous trading history from 2019"
+source: "yfinance"
+survivorship_note: >
+  The list was fixed as of 2019-01-02 but necessarily contains companies that
+  survived through the evaluation window. Historical index membership was not
+  used. Results may be optimistic relative to a true point-in-time universe.
+
+groups:
+  Technology: [AAPL, MSFT, GOOGL, CSCO, INTC]
+  Financials: [JPM, BAC]
+  HealthCare: [JNJ, UNH, PFE]
+  ConsumerStaples: [WMT, PG, KO, PEP]
+  Energy: [XOM, CVX]
+  ConsumerDiscretionary: [AMZN, MCD, DIS]
+  CommunicationServices: [VZ]
+
+companies:
+  AAPL: Apple Inc.
+  MSFT: Microsoft Corporation
+  GOOGL: Alphabet Inc.
+  AMZN: Amazon.com Inc.
+  JPM: JPMorgan Chase & Co.
+  JNJ: Johnson & Johnson
+  XOM: Exxon Mobil Corporation
+  BAC: Bank of America Corporation
+  WMT: Walmart Inc.
+  PG: The Procter & Gamble Company
+  UNH: UnitedHealth Group Incorporated
+  PFE: Pfizer Inc.
+  KO: The Coca-Cola Company
+  PEP: PepsiCo Inc.
+  CSCO: Cisco Systems Inc.
+  INTC: Intel Corporation
+  MCD: McDonald's Corporation
+  DIS: The Walt Disney Company
+  VZ: Verizon Communications Inc.
+  CVX: Chevron Corporation

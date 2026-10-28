@@ -1,0 +1,44 @@
+# Agent model and cutoff configuration.
+#
+# IMPORTANT: The human, not the builder, must verify and fill this file.
+# The builder must never guess a cutoff or claim a source it has not checked.
+#
+# Until `verified: true` and a documented cutoff are present, periods generated
+# from this file are PROVISIONAL (using `periods.cutoff_provisional` below) and
+# eval/run_final.py refuses to run.
+
+agent_model:
+  provider: deepseek
+  name: deepseek-chat
+  api_base: https://api.deepseek.com
+  env_var: DEEPSEEK_API_KEY
+
+  # Human fills these after checking the model card / training-data disclosure.
+  documented_cutoff: null
+  cutoff_source_url: null
+  checked_on: null
+  verified: false
+
+  # Exact checkpoint/pinning. DeepSeek's `deepseek-chat` alias can move between
+  # checkpoints; record the exact served version at final-run time.
+  pinned_snapshot: null
+
+  # Approximate prices for token-cost logging only; verify before budgeting.
+  pricing_usd_per_million:
+    input: 0.28
+    output: 0.42
+
+  notes: |
+    The DeepSeek V3.1/V3.2 training-content disclosure says some training data
+    was collected no later than July 2024, while API aliases have since been
+    upgraded. A cutoff of 2024-06-30 is used ONLY as the worked-example
+    placeholder for generating a provisional periods table. The human must pin
+    a model snapshot, record its documented cutoff and source URL, set
+    verified: true, and regenerate config/periods.yaml before any final run.
+
+periods:
+  # Worked-example placeholder used only while agent_model.verified is false.
+  cutoff_provisional: "2024-06-30"
+  embargo_months: 6
+  stress_start: "2020-01-01"
+  min_clean_weeks: 52

@@ -1,0 +1,35 @@
+# Hard risk limits. Read only by the deterministic risk layer. Agents never
+# receive this file or a path to it.
+#
+# All values are numbers. The risk layer accepts numeric weight proposals only.
+
+max_single_position: 0.12
+max_group_exposure: 0.30
+max_gross_exposure: 1.00          # no leverage
+allow_shorting: false
+min_cash_weight: 0.00
+
+# Turnover is one-way: 0.5 * sum(|target - current|).
+max_turnover_per_rebalance: 0.50
+
+# Liquidity headroom: order notional <= fraction * 20-day average daily volume.
+max_order_fraction_of_adv: 0.10
+adv_lookback_days: 20
+stale_data_days: 10
+
+# Volatility-scaled cap: cap_i = max_single_position * clip(target_vol / vol_i, floor, 1).
+vol_scaled_cap:
+  enabled: true
+  target_annual_vol: 0.20
+  floor_ratio: 0.50
+
+# Drawdown circuit breaker. Drawdown is a negative number (e.g. -0.16).
+drawdown_breaker:
+  enabled: true
+  reduce_threshold: -0.15
+  de_risk_fraction: 0.40          # target gross exposure *= (1 - fraction)
+  halt_threshold: -0.25           # no new buys at all
+  cooloff_trading_days: 20
+
+# Group maps are loaded from config/universe.yaml. A missing group is treated
+# as its own single-name group; unknown tickers are rejected.

@@ -1,0 +1,16 @@
+[project]
+name = "portfolio-debate-lab"
+version = "0.1.0"
+requires-python = ">=3.11"
+description = "Research-only multi-agent portfolio debate laboratory"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = [
+  "ignore::DeprecationWarning",
+  "ignore::FutureWarning",
+]
+markers = [
+  "slow: longer end-to-end checks",
+]

@@ -1,0 +1,63 @@
+cutoff: '2024-06-30'
+cutoff_verified: false
+provisional: true
+generated_on: '2026-10-28'
+embargo_months: 6
+clean_test_weeks: 95
+underpowered: false
+warnings:
+- Using periods.cutoff_provisional because agent_model.documented_cutoff is not human-verified.
+- 'PROVISIONAL: the model cutoff is not human-verified. Do not run final evaluation.'
+periods:
+  warmup:
+    name: warmup
+    start: '2019-01-01'
+    end: '2019-12-31'
+    contaminated: n/a
+    allowed_use: Indicator history only. No decisions.
+    decisions_allowed: false
+  stress_holdout:
+    name: stress_holdout
+    start: '2020-01-02'
+    end: '2022-06-30'
+    contaminated: yes_heavily
+    allowed_use: Regime robustness and contamination-gap test; never tuned on.
+    decisions_allowed: true
+  dev:
+    name: dev
+    start: '2022-07-01'
+    end: '2023-12-29'
+    contaminated: 'yes'
+    allowed_use: Only period for tuning prompts, protocol, thresholds and risk limits.
+      Anonymized. No performance claims.
+    decisions_allowed: true
+  precutoff_holdout:
+    name: precutoff_holdout
+    start: '2024-01-02'
+    end: '2024-06-28'
+    contaminated: partially
+    allowed_use: Pre-cutoff check after the dev freeze; contamination-gap test.
+    decisions_allowed: true
+  embargo:
+    name: embargo
+    start: '2024-07-01'
+    end: '2024-12-31'
+    contaminated: uncertain
+    allowed_use: Excluded from all claims. Guards against fuzzy cutoffs.
+    decisions_allowed: false
+  clean_test:
+    name: clean_test
+    start: '2025-01-02'
+    end: '2026-10-23'
+    contaminated: 'no'
+    allowed_use: Run once, after freeze. The only period that supports performance
+      claims.
+    decisions_allowed: true
+  forward:
+    name: forward
+    start: '2026-10-30'
+    end: null
+    contaminated: 'no'
+    allowed_use: Live paper trading. One decision per week, logged as it happens.
+    decisions_allowed: true
+digest: f8372a4783fa290bbf749d0481831d9afc291b01683b455e1323765c2aa0d6f6
